@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:context="http://www.springframework.org/schema/context"
+	
+	xsi:schemaLocation=
+	"http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+	http://www.springframework.org/schema/context
+    http://www.springframework.org/schema/context/spring-context-3.0.xsd
+    http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.0.xsd    
+    ">
+
+<context:annotation-config />
+
+<bean id="car" class="com.miracom.spring.SportsCar">
+	<constructor-arg value="SM7" />
+	<constructor-arg value="회색"	/>
+</bean>
+
+<bean id="svr" class="com.miracom.spring.CarServiceDI">
+	<constructor-arg ref="car"/>	
+</bean>
+
+
+<bean id="car2" class="com.miracom.spring.SportsCar" >
+	<constructor-arg value="SM7" />
+	<constructor-arg value="회색"	/>
+	<property name="option" value="선루프,네비" />
+</bean>
+
+<bean id="svr2" class="com.miracom.spring.CarServiceDI" >
+	<property name="car" ref="car2"/>	
+</bean>
+
+
+<bean id="car3" class="com.miracom.spring.SportsCar">
+	<constructor-arg value="그랜져" />
+	<constructor-arg value="회색"	/>
+	<property name="option" value="선루프,네비" />
+</bean>
+
+<bean id="svr3" class="com.miracom.spring.CarServiceDIAuto" />
+
+
+</beans>

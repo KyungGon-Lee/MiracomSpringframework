@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:context="http://www.springframework.org/schema/context"
+	
+	xsi:schemaLocation=
+	"http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+	http://www.springframework.org/schema/context
+    http://www.springframework.org/schema/context/spring-context-3.0.xsd
+    http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.0.xsd    
+    ">
+
+<context:annotation-config />
+
+<bean id="car" class="com.spring.miracom.Car">
+	<constructor-arg value="SM7" />
+	<constructor-arg value="레드"	/>
+</bean>
+<!-- car = new Car("SM7", "회색"); 위에랑 같은 문장  -->
+
+<bean id="truck" class="com.spring.miracom.Truck">
+	<constructor-arg value="트럭럭" />
+	<constructor-arg value="용달색"	/>
+</bean>
+ 
+<bean id="svr" class="com.spring.miracom.CarService">
+	<!-- <constructor-arg ref="car3" /> -->
+	<!-- 여기서 car는 위에있는 id임
+	car = new Car("sm7", "gray");
+ 	car = new CarService(car); 와 같은 의미임 ref에 트럭넣으면 트럭나옴-->
+ 	<property name="car" ref="car3"/> 
+ 	<!-- svr = com.spring.miracom.CarService();
+ 	svr.setCar(car3); 위에와 같은거 이거 쓰려면 빈 클래스 정의해줘야 함-->	
+</bean>
+
+<bean id="svr2" class="com.spring.miracom.CarService">
+</bean>
+ 
+<bean id="tire 0" class="com.spring.miracom.Tire">
+	<constructor-arg value="tire 0" />
+</bean>
+<bean id="tire 1" class="com.spring.miracom.Tire">
+	<constructor-arg value="tire 1" />
+</bean>
+<bean id="tire 2" class="com.spring.miracom.Tire">
+	<constructor-arg value="tire 2" />
+</bean>
+<bean id="tire 3" class="com.spring.miracom.Tire">
+	<constructor-arg value="tire 3" />
+</bean>
+<bean id="tire 4" class="com.spring.miracom.HanTire">
+	<constructor-arg value="tire 4" />
+</bean>
+<bean id="tire 5" class="com.spring.miracom.HanTire">
+	<constructor-arg value="tire 5" />
+</bean>
+
+<!--<bean id="car2" class="com.spring.miracom.Car">
+	<constructor-arg value="SM7" />
+	<constructor-arg value="red" />
+	<constructor-arg ref="tire 0" />
+	<constructor-arg ref="tire 1" />
+	<constructor-arg ref="tire 2" />	
+	<constructor-arg ref="tire 3" />	
+</bean>-->
+ 	 <!-- ref는 만들어진 객체라는의미임 그래서
+ 	 car2 = new Car("SM6", "red", tire0, tire1, tire2, tire3)
+ 	 와 같은의미임-->
+
+
+<bean id="car3" class="com.spring.miracom.Car">
+	<constructor-arg value="sportscar" />
+	<constructor-arg value="black" />
+	<constructor-arg ref="tire 0" />
+	<constructor-arg ref="tire 1" />
+	<constructor-arg ref="tire 2" />	
+	<constructor-arg ref="tire 3" />	
+</bean>
+
+</beans>
