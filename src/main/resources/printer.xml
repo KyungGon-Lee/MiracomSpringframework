@@ -13,14 +13,14 @@
 
 <context:annotation-config />
 
-<bean id="SS" class="com.sprint.miracom.SSPrinter"/>
-<bean id="LG" class="com.sprint.miracom.LGPrinter"/>
+<bean id="SS" class="com.spring.miracom.SSPrinter"/>
+<bean id="LG" class="com.spring.miracom.LGPrinter"/>
 
-<bean id="printer" class="com.sprint.miracom.PrinterService">
+<bean id="printer" class="com.spring.miracom.PrinterService">
 	<property name="printer" ref="SS"></property>
 </bean>
 
-<bean id="printer" class="com.sprint.miracom.PrinterService">
+<bean id="printers" class="com.spring.miracom.PrinterService">
 	<property name="printers">
 		<list>
 			<ref bean="SS"/>
